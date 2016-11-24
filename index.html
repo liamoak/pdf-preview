@@ -30,55 +30,31 @@
 <body>
   <!-- title-block
     ================================================== -->
-  <div class="pdf-view">
     <div class="title-block">
       <h1 clas="title"> PDF Preview </h1>
       <h2 class="title"> Demo </h2>
     </div>
-  </div>
+
   <!-- page previews
     ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 
-  <div class="container page">
-          <div class="shoesNav">
-<script id="shoe-template" type="x-handlebars-template">​
+<canvas id="the-canvas" style="border:1px solid black;"></canvas>
+
+<div class="container page">
+	<div class="row handleBars">
+		<script id="page-template" type="x-handlebars-template">​
    {{#each this}}​
-    <h2 class="shoes"><a href="/{{name}}">{{name}} -- Price: {{price}} </a></h2>​
+      <div class="col-lg-4">
+        <div class="frame">
+          <img class="img-square" src={{imgsrc}} alt="Generic placeholder image"
+            width="240" height="240">
+          <h2>{{name}}</h2>
+        </div>
+      </div>
     {{/each}}
 ​</script>
-      </div>
-      
-
-    <!-- Three columns of text below the pdf-view -->
-    <div class="row">
-      <div class="col-lg-4">
-        <div class="frame">
-          <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
-            width="240" height="240">
-          <h2>Page 1</h2>
-        </div>
-      </div>
-      <!-- /.col-lg-4 -->
-      <div class="col-lg-4">
-        <div class="frame">
-          <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
-            width="240" height="240">
-          <h2>Page 2</h2>
-        </div>
-        <!-- /.col-lg-4 -->
-      </div>
-      <div class="col-lg-4">
-        <div class="frame">
-          <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
-            width="240" height="240">
-          <h2>Page 3</h2>         
-        </div>
-        <!-- /.col-lg-4 -->
-      </div>
-    </div>
-    <!-- /.row -->
-
+	</div>
 
     <!-- START THE FEATURETTES -->
 
@@ -97,7 +73,6 @@
     <hr class="featurette-divider">
 
     <!-- /END THE FEATURETTES -->
-
 
     <!-- FOOTER -->
     <footer>
@@ -120,6 +95,8 @@
   <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   <script src="handlebars-v4.0.5.js"></script>
   <script src="handles.js"></script>
+  <script src="pdf.js"></script>
+  <script src="mypdf.js"></script>
 </body>
 
 </html>

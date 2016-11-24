@@ -7,9 +7,8 @@ body {
   color: #5a5a5a;
 }
 
-
 /*title class */
-.pdf-view {
+.title-block {
   height: 500px;
   margin-bottom: 60px;
   background-color: #777;

@@ -1,6 +1,13 @@
+
 $(function  () {
-    var shoesData = [{name:"Nike", price:199.00 }, {name:"Loafers", price:59.00 }, {name:"Wing Tip", price:259.00 }];
-    var theTemplateScript = $("#shoe-template").html();
+    var pagesData = [
+        {name:"Page1", imgsrc:"data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" },
+        {name:"Page2", imgsrc:"data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" },
+        {name:"Page3", imgsrc:"data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" },
+        {name:"Page4", imgsrc:"data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" },
+        {name:"Page5", imgsrc:"data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" }, 
+        ];
+    var theTemplateScript = $("#page-template").html();
     var theTemplate = Handlebars.compile (theTemplateScript);
-    $(".shoesNav").append (theTemplate(shoesData));
+    $(".handleBars").append (theTemplate(pagesData));
 });
