@@ -1,0 +1,82 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+  padding-bottom: 40px;
+  color: #5a5a5a;
+}
+
+
+/*title class */
+.pdf-view {
+  height: 500px;
+  margin-bottom: 60px;
+  background-color: #777;
+}
+
+.title-block  h1 {
+  margin-top: 0;
+  font-size: 60px;
+  color: white;
+  padding-top: 60px;
+  padding-left:60px;
+
+}
+
+.title-block h2 {
+  color: white;
+  padding-top: 60px;
+  padding-left:60px;
+  
+}
+
+/* page CONTENT
+-------------------------------------------------- */
+
+/* Center align the text within the three columns below the pdf-view */
+.page .col-lg-4 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+.page h2 {
+  font-weight: normal;
+}
+.page .col-lg-4 p {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.page img{
+  padding-top: 20px;
+}
+
+.page .frame{
+      border: 1px solid;
+    border-radius: 4px;
+}
+
+/* Featurettes
+------------------------- */
+
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the page headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <meta name="author" content="Liam McNally">
+  <link rel="icon" href="favicon.ico">
+
+  <title>PDF Loader</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <!-- Custom styles -->
+  <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- title-block
+    ================================================== -->
+  <div class="pdf-view">
+    <div class="title-block">
+      <h1 clas="title"> PDF Preview </h1>
+      <h2 class="title"> Demo </h2>
+    </div>
+  </div>
+  <!-- page previews
+    ================================================== -->
+  <!-- Wrap the rest of the page in another container to center all the content. -->
+
+  <div class="container page">
+          <div class="shoesNav">
+<script id="shoe-template" type="x-handlebars-template">​
+   {{#each this}}​
+    <h2 class="shoes"><a href="/{{name}}">{{name}} -- Price: {{price}} </a></h2>​
+    {{/each}}
+​</script>
+      </div>
+      
+
+    <!-- Three columns of text below the pdf-view -->
+    <div class="row">
+      <div class="col-lg-4">
+        <div class="frame">
+          <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
+            width="240" height="240">
+          <h2>Page 1</h2>
+        </div>
+      </div>
+      <!-- /.col-lg-4 -->
+      <div class="col-lg-4">
+        <div class="frame">
+          <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
+            width="240" height="240">
+          <h2>Page 2</h2>
+        </div>
+        <!-- /.col-lg-4 -->
+      </div>
+      <div class="col-lg-4">
+        <div class="frame">
+          <img class="img-square" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image"
+            width="240" height="240">
+          <h2>Page 3</h2>         
+        </div>
+        <!-- /.col-lg-4 -->
+      </div>
+    </div>
+    <!-- /.row -->
+
+
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">Here is the page you clicked: <span class="text-muted">12kb</span></h2>
+        <p class="lead">maybe some content from that page here would look nice.</p>
+      </div>
+      <div class="col-md-5">
+        <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
+
+
+    <!-- FOOTER -->
+    <footer>
+      <p class="pull-right"><a href="#">Back to top</a></p>
+      <p>&copy; NotBootstrap Inc. &middot; </p>
+    </footer>
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+  <script src="../../dist/js/bootstrap.min.js"></script>
+  <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+  <script src="../../assets/js/vendor/holder.min.js"></script>
+  <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+  <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+  <script src="handlebars-v4.0.5.js"></script>
+  <script src="handles.js"></script>
+</body>
+
+</html>
