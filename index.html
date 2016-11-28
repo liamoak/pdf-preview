@@ -39,17 +39,14 @@
     ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
 
-<canvas id="the-canvas" style="border:1px solid black;"></canvas>
-
 <div class="container page">
 	<div class="row handleBars">
 		<script id="page-template" type="x-handlebars-template">​
    {{#each this}}​
       <div class="col-lg-4">
-        <div class="frame">
-          <img class="img-square" src={{imgsrc}} alt="Generic placeholder image"
-            width="240" height="240">
-          <h2>{{name}}</h2>
+        <div class="frame page">
+          <canvas id={{canvasid}} style="border:1px solid black;"></canvas>
+          <h2>Page {{number}}</h2>
         </div>
       </div>
     {{/each}}
@@ -95,9 +92,6 @@
   <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   <script src="handlebars-v4.0.5.js"></script>
   <script src="pdf.js"></script>
-
-
-  <script src="handles.js"></script>
   <script src="mypdf.js"></script>
 </body>
 
