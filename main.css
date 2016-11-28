@@ -56,7 +56,9 @@ body {
 }
 
 .page canvas{
+  border:1px solid black;
   margin-top: 20px;
+  background-color: #eeeeee;
 }
 
 /* Featurettes

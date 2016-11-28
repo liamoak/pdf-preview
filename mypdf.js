@@ -2,10 +2,18 @@ PDFJS.workerSrc = "pdf.js"; // location of pdf.js file
 
 PDFJS.getDocument('lm741.pdf').then(function (pdf) {
     // you can now use *pdf* here
-    
+    var totalPages = pdf.pdfInfo.numPages;
+
+    var page1Data = { title: "lm741" }; // page.title
+    var page1TemplateScript = $("#page1-template").html();
+    var page1Template = Handlebars.compile(page1TemplateScript);
+    $(".handleBarsPage1").append(page1Template(page1Data));
+
+
+
     // For each page in the pdf, push some information onto the pagesData array
     var pagesData = [];
-    for (var i = 1; i <= pdf.pdfInfo.numPages; i++) {
+    for (var i = 1; i <= totalPages; i++) {
         pagesData.push(
             { number: i.toString(), canvasid: "the-canvas".concat(i.toString()) }
         );
@@ -16,9 +24,8 @@ PDFJS.getDocument('lm741.pdf').then(function (pdf) {
     $(".handleBars").append(theTemplate(pagesData));
 
     // once the boxes for the pages ares setup and are denoted by id=canvasID. render the page in each box.
-    for (var i = 1; i <= pdf.pdfInfo.numPages; i++) {
+    for (var i = 1; i <= totalPages; i++) {
         let ID = 'the-canvas'.concat(i.toString());
-        console.log(ID);
         pdf.getPage(i).then(function (page) { showPage(page, ID) });
     }
 });

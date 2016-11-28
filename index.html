@@ -35,6 +35,23 @@
       <h2 class="title"> Demo </h2>
     </div>
 
+    
+    <!-- START THE FEATURETTES -->
+
+    <div class="container">
+    <div class="handleBarsPage1">
+      <script id="page1-template" type="x-handlebars-template">​
+      <div class="row featurette">
+      <div class="col-md-8">
+        <h2 class="featurette-heading">{{title}} <span class="text-muted">.PDF</span></h2>
+        <p class="lead">Insert Loading Bar Here </p>
+      </div>
+      </div>
+      </script>
+    </div>
+</div>
+    <hr class="featurette-divider">
+
   <!-- page previews
     ================================================== -->
   <!-- Wrap the rest of the page in another container to center all the content. -->
@@ -45,27 +62,13 @@
    {{#each this}}​
       <div class="col-lg-4">
         <div class="frame page">
-          <canvas id={{canvasid}} style="border:1px solid black;"></canvas>
+          <canvas id={{canvasid}}></canvas>
           <h2>Page {{number}}</h2>
         </div>
       </div>
     {{/each}}
 ​</script>
 	</div>
-
-    <!-- START THE FEATURETTES -->
-
-    <hr class="featurette-divider">
-
-    <div class="row featurette">
-      <div class="col-md-7">
-        <h2 class="featurette-heading">Here is the page you clicked: <span class="text-muted">12kb</span></h2>
-        <p class="lead">maybe some content from that page here would look nice.</p>
-      </div>
-      <div class="col-md-5">
-        <img class="featurette-image img-responsive center-block" data-src="holder.js/500x500/auto" alt="Generic placeholder image">
-      </div>
-    </div>
 
     <hr class="featurette-divider">
 
