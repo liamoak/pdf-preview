@@ -30,6 +30,12 @@ body {
   
 }
 
+#run-button {
+  padding: 30px 50px 30px 50px;
+  margin-top: 150px;
+  margin-left: 60px;
+}
+
 /* page CONTENT
 -------------------------------------------------- */
 
@@ -58,6 +64,7 @@ body {
 .page canvas{
   border:1px solid black;
   margin-top: 20px;
+  margin-bottom: 20px;
   background-color: #eeeeee;
 }
 

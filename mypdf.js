@@ -1,28 +1,31 @@
+function runPDFPreview(FilePath) {
+
 PDFJS.workerSrc = "pdf.js"; // location of pdf.js file
 
-PDFJS.getDocument('lm741.pdf').then(function (pdf) {
+PDFJS.getDocument(FilePath).then(function (pdf) {
     // you can now use *pdf* here
     var totalPages = pdf.pdfInfo.numPages;
 
-    var previewData = { title: "lm741", progress: "0", total: totalPages }; // page.title
-    var previewTemplateScript = $("#preview-template").html();
-    var previewTemplate = Handlebars.compile(previewTemplateScript);
-
-
-    $(".handleBarsPreview").append(previewTemplate(previewData));
-
-
-
+    var previewData = { title: FilePath.toString(), progress: "0", total: totalPages }; // page.title
     // For each page in the pdf, push some information onto the pagesData array
     var pagesData = [];
     for (var i = 1; i <= totalPages; i++) {
-        pagesData.push(
-            { number: i, canvasid: "the-canvas".concat(i) }
-        );
+        pagesData.push( { number: i, canvasid: "the-canvas".concat(i) } );
     }
+
+
+
+    var previewTemplateScript = $("#preview-template").html();
+    var previewTemplate = Handlebars.compile(previewTemplateScript);
+
+    $(".handleBarsPreview").append(previewTemplate(previewData));
+
     // once all pages are added to the data array, render the html specified via a template in index.html where the #html-template is used.
+
+
     var theTemplateScript = $("#page-template").html();
     var theTemplate = Handlebars.compile(theTemplateScript);
+
     $(".handleBars").append(theTemplate(pagesData));
 
     // once the boxes for the pages ares setup and are denoted by id=canvasID. render the page in each box.
@@ -41,7 +44,7 @@ PDFJS.getDocument('lm741.pdf').then(function (pdf) {
 
 function showPage(page, canvasID) {
     // you can now use *page* here
-    var desiredWidth = 240;
+    var desiredWidth = 300;
     var scale = desiredWidth / page.getViewport(1).width; //determine an appropriate scale based on desired width and doc default width
     var viewport = page.getViewport(scale);
 
@@ -55,4 +58,6 @@ function showPage(page, canvasID) {
         viewport: viewport
     };
     page.render(renderContext);
+}
+
 }
