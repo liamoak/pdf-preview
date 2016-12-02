@@ -1,3 +1,5 @@
+
+
 function runPDFPreview(FilePath) {
 
 PDFJS.workerSrc = "pdf.js"; // location of pdf.js file
@@ -29,15 +31,19 @@ PDFJS.getDocument(FilePath).then(function (pdf) {
     // once the boxes for the pages ares setup we can fill the canvas within with PDF data.
     // The Canvas is denoted by  id=canvasID. This loop will get each page in the pdf, and render that page in the relevant canvas
     // Once a page is rendered, the progress is set to the current loaded page, and this information is updated in the html.
-    for (let i = 1; i <= totalPages; i++) {
-        let ID = 'the-canvas'.concat(i);
-        pdf.getPage(i).then(function (page) {
+    var count = 1;
+    for (var i = 1; i <= totalPages; i++) {
+        var ID = 'the-canvas'.concat(count);
+        pdf.getPage(count).then(function (page) {
              showPage(page, ID);
-             previewData.progress = i ;
+             previewData.progress = count++;
              $(".handleBarsPreview").html(previewTemplate(previewData)); 
             });
     }
 });
+
+}
+
 
 // these canvas IDs must exist prior to running this loop. This is why the showPages function runs once the templates are rendered.
 // This means that the handlebar boxes must be rendered prior to the content.
@@ -59,6 +65,4 @@ function showPage(page, canvasID) {
         viewport: viewport
     };
     page.render(renderContext);
-}
-
 }
