@@ -4,10 +4,12 @@ PDFJS.getDocument('lm741.pdf').then(function (pdf) {
     // you can now use *pdf* here
     var totalPages = pdf.pdfInfo.numPages;
 
-    var page1Data = { title: "lm741" }; // page.title
-    var page1TemplateScript = $("#page1-template").html();
-    var page1Template = Handlebars.compile(page1TemplateScript);
-    $(".handleBarsPage1").append(page1Template(page1Data));
+    var previewData = { title: "lm741", progress: "0", total: totalPages }; // page.title
+    var previewTemplateScript = $("#preview-template").html();
+    var previewTemplate = Handlebars.compile(previewTemplateScript);
+
+
+    $(".handleBarsPreview").append(previewTemplate(previewData));
 
 
 
@@ -15,7 +17,7 @@ PDFJS.getDocument('lm741.pdf').then(function (pdf) {
     var pagesData = [];
     for (var i = 1; i <= totalPages; i++) {
         pagesData.push(
-            { number: i.toString(), canvasid: "the-canvas".concat(i.toString()) }
+            { number: i, canvasid: "the-canvas".concat(i) }
         );
     }
     // once all pages are added to the data array, render the html specified via a template in index.html where the #html-template is used.
@@ -24,9 +26,13 @@ PDFJS.getDocument('lm741.pdf').then(function (pdf) {
     $(".handleBars").append(theTemplate(pagesData));
 
     // once the boxes for the pages ares setup and are denoted by id=canvasID. render the page in each box.
-    for (var i = 1; i <= totalPages; i++) {
-        let ID = 'the-canvas'.concat(i.toString());
-        pdf.getPage(i).then(function (page) { showPage(page, ID) });
+    for (let i = 1; i <= totalPages; i++) {
+        let ID = 'the-canvas'.concat(i);
+        pdf.getPage(i).then(function (page) {
+             showPage(page, ID);
+             previewData.progress = i ;
+             $(".handleBarsPreview").html(previewTemplate(previewData)); 
+            });
     }
 });
 
@@ -35,11 +41,8 @@ PDFJS.getDocument('lm741.pdf').then(function (pdf) {
 
 function showPage(page, canvasID) {
     // you can now use *page* here
-    // var scale = 1.5;
-    // var viewport = page.getViewport(scale);
     var desiredWidth = 240;
-    var viewport = page.getViewport(1);
-    var scale = desiredWidth / viewport.width;
+    var scale = desiredWidth / page.getViewport(1).width; //determine an appropriate scale based on desired width and doc default width
     var viewport = page.getViewport(scale);
 
     var canvas = document.getElementById(canvasID);
