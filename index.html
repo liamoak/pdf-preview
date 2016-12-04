@@ -42,31 +42,30 @@
 		</div>
 	</div>
 
-	<!-- START THE FEATURETTES -->
+
+	
+	<!-- pdf preview
+    ================================================== -->
+
+
+<div id="pdf-preview">
 
   <div id="show-if-unsupported-browser">
   </div>
-
-<div id="coolio">
 	<div class="container">
 		<div class="handleBarsPreview">
 			<script id="preview-template" type="x-handlebars-template">​
-      <div class="row featurette">
+      <div class="row preview">
       <div class="col-md-8">
-        <h2 class="featurette-heading">{{title}}</h2>
+        <h2 class="preview-heading">{{title}}</h2>
               <div class="text-xs-center lead" id="example-caption-1">Loading Pages  {{progress}} / {{total}}</div>
       <progress class="progress" value= {{progress}} max={{total}} aria-describedby="example-caption-1"></progress>
       </div>
       </div>
-
       </script>
 		</div>
 	</div>
-	<hr class="featurette-divider">
-
-	<!-- page previews
-    ================================================== -->
-	<!-- Wrap the rest of the page in another container to center all the content. -->
+	<hr class="preview-divider">
 
 	<div class="container">
 		<div class="page handleBars">
@@ -80,55 +79,50 @@
       ​</script>
 		</div>
     </div>
-</div> <!-- END collio -->
+</div>
+ <!-- END pdf-preview -->
+
+
 
 		<div class="container">
-			<hr class="featurette-divider">
-
-			<!-- /END THE FEATURETTES -->
-
+			<hr class="preview-divider">
 			<!-- FOOTER -->
 			<footer>
 				<p class="pull-right"><a href="#">Back to top</a></p>
 				<p>&copy; NotBootstrap Inc. &middot; </p>
 			</footer>
 		</div>
-
 		<!-- /.container -->
-		<!-- Bootstrap core JavaScript
-    ================================================== -->
-		<!-- Placed at the end of the document so the pages load faster -->
+
+
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
 		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 		<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
-
-
-  <script>
-  try {
-  var isAFeature = !!ArrayBuffer; // IE 9 and below do not have this feature, and this is necessary for pdf.js among other features.
-  var unsupport = false;
-  }
-  catch(err) {
-  var unsupport = true;
-  }
-  if (!unsupport) { 
-    document.write('<script src="pdf.js"><\/script>');
-    document.write('<script src="mypdf.js"><\/script>');
-    $("#run-button").one("click",function(){
-      runPDFPreview('lm741.pdf');
-    });
-    } else {
-    $("#run-button").one("click",function(){
-      $("#show-if-unsupported-browser").append("<h1>PDF Preview Unsupported</h1>");
-    });
-    }
-  </script>
+		
 
 		<script>
-
-  </script>
+				try {
+				var isAFeature = !!ArrayBuffer; // IE 9 and below do not have this feature, and this is necessary for pdf.js among other features.
+				var unsupport = false;
+				}
+				catch(err) {
+				var unsupport = true;
+				}
+				if (!unsupport) { 
+					document.write('<script src="pdf.js"><\/script>');
+					document.write('<script src="mypdf.js"><\/script>');
+					$("#run-button").one("click",function(){
+						runPDFPreview('lm741.pdf');
+					});
+					} else {
+					$("#run-button").one("click",function(){
+						$("#show-if-unsupported-browser").append("<h1>PDF Preview Unsupported</h1>");
+					});
+					}
+				</script>
 </body>
 
 </html>

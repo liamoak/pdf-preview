@@ -46,6 +46,11 @@ body {
     width: 24%;
   }
 }
+@media (max-width: 1200px){
+  .page {
+    width: 100%;
+  }
+}
 
 .page {
   margin-bottom: 20px;
@@ -65,15 +70,15 @@ body {
   max-width: 240px;
 }
 
-/* Featurettes
+/* Preview
 ------------------------- */
 
-.featurette-divider {
+.preview-divider {
   margin: 80px 0; /* Space out the Bootstrap <hr> more */
 }
 
 /* Thin out the page headings */
-.featurette-heading {
+.preview-heading {
   font-weight: 300;
   line-height: 1;
   letter-spacing: -1px;
@@ -81,7 +86,7 @@ body {
 }
 
 @media (min-width: 992px) {
-  .featurette-heading {
-    margin-top: 120px;
+  .preview-heading {
+    margin-top: 80px;
   }
 }
