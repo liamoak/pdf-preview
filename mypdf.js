@@ -15,6 +15,9 @@ PDFJS.getDocument(FilePath).then(function (pdf) {
     var pagesData = [];
     for (var i = 1; i <= totalPages; i++) {
         pagesData.push( { number: i, canvasid: "the-canvas".concat(i) } );
+
+
+        
     }
 
     // These 3 lines put the handle-bar data into a template and ender the html specified via a template in index.html where the #html-template is used.
@@ -31,15 +34,23 @@ PDFJS.getDocument(FilePath).then(function (pdf) {
     // once the boxes for the pages ares setup we can fill the canvas within with PDF data.
     // The Canvas is denoted by  id=canvasID. This loop will get each page in the pdf, and render that page in the relevant canvas
     // Once a page is rendered, the progress is set to the current loaded page, and this information is updated in the html.
-    var count = 1;
-    for (var i = 1; i <= totalPages; i++) {
-        var ID = 'the-canvas'.concat(count);
-        pdf.getPage(count).then(function (page) {
-             showPage(page, ID);
-             previewData.progress = count++;
+
+    var counter = {
+        value: 1,
+        add: function(){this.value++;},
+        count: function(){return this.value}
+    };
+    
+    // counter outside as for loop completes before then completes.
+    for (var i = 1; i <= totalPages; ++i) {
+        pdf.getPage(i).then(function (page) {
+             showPage(page, 'the-canvas'.concat(counter.count()));
+             previewData.progress = counter.count();
+             counter.add();
              $(".handleBarsPreview").html(previewTemplate(previewData)); 
             });
     }
+    
 });
 
 }
