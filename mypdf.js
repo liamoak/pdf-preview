@@ -50,9 +50,11 @@ function runPDFPreview(FilePath) {
 
 function showPage(page, canvasID, then) {
     // you can now use *page* here
-    //var desiredWidth = window.outerWidth/6;
-    var desiredWidth = 300;
-    var scale = desiredWidth / page.getViewport(1).width; //determine an appropriate scale based on desired width and doc default width
+    // determine an appropriate scale based on desired width and doc default width
+    // currently based on a canvas width of 240px
+    
+    var desiredWidth = 240;
+    var scale = desiredWidth / page.getViewport(0.5).width; 
     var viewport = page.getViewport(scale);
 
     var canvas = document.getElementById(canvasID);
