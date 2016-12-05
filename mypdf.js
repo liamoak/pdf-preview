@@ -45,16 +45,16 @@ function runPDFPreview(FilePath) {
     });
 }
 
-// these canvas IDs must exist prior to running this loop. This is why the showPages function runs once the templates are rendered.
+// these canvas IDs must exist prior to running this loop. This is why the showPages loop runs once the templates are rendered.
 // This means that the handlebar boxes must be rendered prior to the content.
 
 function showPage(page, canvasID, then) {
     // you can now use *page* here
     // determine an appropriate scale based on desired width and doc default width
     // currently based on a canvas width of 240px
-    
+    // the width of the canvas can also be set via css
     var desiredWidth = 240;
-    var scale = desiredWidth / page.getViewport(0.5).width; 
+    var scale = desiredWidth / page.getViewport(0.5).width; // the higher the (scale) the greater the detail
     var viewport = page.getViewport(scale);
 
     var canvas = document.getElementById(canvasID);
